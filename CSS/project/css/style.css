@@ -29,6 +29,28 @@
 	padding:20px;
 }
 
+
+.navbar{
+	width:100%;
+	height:auto;
+	float:left;
+	background-color:black;
+}
+
+.navbar a{
+	display:block;
+	float:left;
+	padding:15px 25px;
+	text-decoration:none;
+	color:white;
+	font-size:20px;
+}
+
+.navbar a:hover{
+	background-color:Lightgray;
+	color:black;
+}
+
 .banner{
 	background:url(../image/img1.jpg);
 	background-size:100% 100%;
