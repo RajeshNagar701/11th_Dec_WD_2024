@@ -91,12 +91,26 @@
 	padding:100px;
 }
 
-.sidebar{
+.sidebar1{
 	background-color:orange;
 	color:blue;
 	padding:20px;
 }
+.sidebar2{
+	background-color:pink;
+	color:blue;
+	padding:20px;
+}
 
+
+
+@media screen and (max-width: 768px) {
+  .sidebar2{
+	  display:none;
+       }
+}
+
+	
 .mainbar{
 	background-color:Lightgray;
 	color:red;
