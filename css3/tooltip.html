@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html>
 <style>
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border: 1px dotted black;
-  background-color:#999999;
-}
 
- .tooltiptext {
-  visibility:hidden;
-  width: 100px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position:absolute;
-  top:-5px;
-  left:100px;
+.mybox{
+	position:relative;
+	top:100px;
+	left:100px;
+	height:20px;
+	background-color:lightGray;
+	padding:5px;
+	width:150px;
 }
-
-.tooltip:hover .tooltiptext{
+.tooltip{
+	position:absolute;
+	bottom:40px;
+	left:25px;
+	color:white;
+	height:20px;
+	background-color:black;
+	padding:5px;
+	width:100px;
+	border-radius:15px;
+	visibility:hidden;
+}
+.mybox:hover .tooltip{
 	visibility:visible;
 }
-
-
 
 </style>
 <body style="text-align:center;">
 
-<div class="tooltip">Hover over me
-  <span class="tooltiptext">Tooltip text</span>
-</div>
+
+	<div class="mybox">Hover over me 
+		<div class="tooltip"> Hoorey </div>
+	</div>
+	
 </body>
 </html>
