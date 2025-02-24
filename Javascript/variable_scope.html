@@ -21,12 +21,12 @@ as a global variable, you effectively hide the global variable. Take a look into
    <body>   
       <script type = "text/javascript">
          <!--
-            var global = "global";      // Declare a global variable
+            var global = "global";      // Declare a global/public variable
 			
 			
 			function sayHello( ) 
 			{
-               var local = "local";    // Declare a local variable
+               var local = "local";    // Declare a local/private variable
                document.write(local);
 			   document.write(global);
             }
