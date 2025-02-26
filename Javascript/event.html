@@ -1,5 +1,5 @@
-;<!--
-on change again change
+<!--
+
 
 What is an Event ?
 JavaScript's interaction with HTML is handled through events that occur when the 
@@ -14,35 +14,35 @@ HTML 5 Standard Events
 The standard HTML 5 events are listed here for your reference. Here script indicates a Javascript function to be executed against that event.
 
 Attribute			Value	Description
-Offline	script		Triggers when the document goes offline
-Onabort	script		Triggers on an abort event
+Offline				script		Triggers when the document goes offline
+Onabort				script		Triggers on an abort event
 onafterprint		script	Triggers after the document is printed
 onbeforeonload		script	Triggers before the document loads
 onbeforeprint		script	Triggers before the document is printed
-onblur	script		Triggers when the window loses focus
-oncanplay	script	Triggers when media can start play, but might has to stop for buffering
+onblur				script		Triggers when the window loses focus
+oncanplay			script	Triggers when media can start play, but might has to stop for buffering
 oncanplaythrough	script	Triggers when media can be played to the end, without stopping for buffering
-onchange	script	Triggers when an element changes
+onchange			script	Triggers when an element changes
 onclick	script		Triggers on a mouse click
-oncontextmenu	script	Triggers when a context menu is triggered
-ondblclick	script	Triggers on a mouse double-click
-ondrag	script		Triggers when an element is dragged
-ondragend	script	Triggers at the end of a drag operation
-ondragenter	script	Triggers when an element has been dragged to a valid drop target
-ondragleave	script	Triggers when an element is being dragged over a valid drop target
-ondragover	script	Triggers at the start of a drag operation
-ondragstart	script	Triggers at the start of a drag operation
-ondrop	script		Triggers when dragged element is being dropped
+oncontextmenu		script	Triggers when a context menu is triggered
+ondblclick			script	Triggers on a mouse double-click
+ondrag				script		Triggers when an element is dragged
+ondragend			script	Triggers at the end of a drag operation
+ondragenter			script	Triggers when an element has been dragged to a valid drop target
+ondragleave			script	Triggers when an element is being dragged over a valid drop target
+ondragover			script	Triggers at the start of a drag operation
+ondragstart			script	Triggers at the start of a drag operation
+ondrop				script		Triggers when dragged element is being dropped
 ondurationchange	script	Triggers when the length of the media is changed
-onemptied	script	Triggers when a media resource element suddenly becomes empty.
+onemptied			script	Triggers when a media resource element suddenly becomes empty.
 onended	script		Triggers when media has reach the end
 onerror	script		Triggers when an error occur
 onfocus	script		Triggers when the window gets focus
-onformchange	script	Triggers when a form changes
-onforminput	script	Triggers when a form gets user input
-onhaschange	script	Triggers when the document has change
-oninput	script		Triggers when an element gets user input
-oninvalid	script	Triggers when an element is invalid
+onformchange		script	Triggers when a form changes
+onforminput			script	Triggers when a form gets user input
+onhaschange			script	Triggers when the document has change
+oninput				script		Triggers when an element gets user input
+oninvalid			script	Triggers when an element is invalid
 onkeydown	script	Triggers when a key is pressed
 onkeypress	script	Triggers when a key is pressed and released
 onkeyup	script		Triggers when a key is released
@@ -97,10 +97,6 @@ onwaiting	script	Triggers when media has stopped playing, but is expected to res
 
 </head>
 <body>
-<input type="submit" name="submit" value="onclick here"  onclick="myfunction()">  <!-- onclick HTML EVENT-->
-<input type="submit" name="submit" value="ondblclick here" ondblclick="myfunction()">  <!-- onclick HTML EVENT-->
-<input type="submit" name="submit" value="onmouseover here" onmouseover="myfunction()">  <!-- onclick HTML EVENT-->
-<input type="submit" name="submit" value="onmouseout here" onmouseout="myfunction()">  <!-- onclick HTML EVENT-->
 <!--
 <input type="submit" name="submit" value="click here" 
 onblur="", 
@@ -119,40 +115,55 @@ onmouseup="">
 
 <!-- onclick HTML EVENT-->
 <div>
-<h1 id="raj"> rajesh</h1>
 
-<input type="text" id="demo" onkeypress="myfunction1()"/>
-</div>
 
-<img src="moon.png" id="img" width="200px" height="200px" onmouseover="img1()" onmouseout="img2()"/>
+<button onclick="change()">Change onclick</button>
+<button ondblclick="change()">Change ondblclick</button>
+<button onmouseover="change()">Change onmouseover</button>
+<button onmouseout="change()">Change onmouseout</button>
 
+
+<h1 id="test"> Hi i am HTML </h1>
 
 <script>
-	// function of javasript
-	function myfunction()
+	function change()
 	{
-		document.getElementById('raj').innerHTML="This is all HTML EVENTS";	
-	}
-	function myfunction1()
-	{
-		document.getElementById('demo').style.color="red";	
-		document.getElementById('demo').style.textTransform="uppercase";
-		document.getElementById('demo').style.backgroundColor="yellow";
-	}
-	
-	function img1()
-	{
-		document.getElementById('img').style.width="300px";
-		document.getElementById('img').style.height="300px";			
-	}
-	
-	function img2()
-	{
-		document.getElementById('img').style.width="200px";
-		document.getElementById('img').style.height="200px";			
+		document.getElementById('test').innerHTML="Hi i am Javascript";
 	}
 	
 </script>
+
+
+<input type="text" id="test1" onfocus="change1()" onblur="change2()">
+
+<script>
+	function change1()
+	{
+		document.getElementById('test1').style.backgroundColor="red";
+		document.getElementById('test1').style.color="white";
+	}
+	function change2()
+	{
+		document.getElementById('test1').style.backgroundColor="green";
+	}
+</script>
+
+<br><br><br>
+
+<img src="img_girl.jpg" id="test2" width="50px" onmouseover="big()" onmouseout="small()">
+
+<script>
+	function big()
+	{
+		document.getElementById('test2').style.width="100px";
+	}
+	function small()
+	{
+		document.getElementById('test2').style.width="50px";
+	}
+</script>
+
+
 </body>
 </html>
 
