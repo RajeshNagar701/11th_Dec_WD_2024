@@ -113,28 +113,27 @@ function validation1(){
 
 <script>
 
-function validation2(str){
+	function validation2(arg){
 	
+		if(arg.ufn.value=="")
+		{
+			document.getElementById('msg').innerHTML="UFN Field is required from form2";
+			arg.ufn.focus();
+			return false;
+		}
+		
+		if(arg.uln.value=="")
+		{
+			document.getElementById('msg').innerHTML="ULN Field is required from form2";
+			arg.uln.focus();
+			return false;
+		}
 	
-	if(str.ufn.value=="")
-	{
-	document.getElementById("msg").innerHTML="! Please enter Some Value in User Name";
-	str.ufn.focus();
-	return false;
 	}
-	
-	if(str.uln.value=="")
-	{
-	document.getElementById("msg").innerHTML="! Please enter Some Value in User Last Name";
-	str.uln.focus();
-	return false;
-	}
-
-}
 </script>
 
 
-		<h1 align="center" id="msg" style="color:red"></h1>
+		<p align="center" id="msg" style="color:red"></p>
 		<form action="" method="post" onsubmit="return validation2(this)">
 			<table border="2" align="center">
             	<tr>
