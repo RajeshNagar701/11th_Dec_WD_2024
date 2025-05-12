@@ -4,6 +4,8 @@
 	<h3>Enter Studnts</h3>
 	<input type="text" id="name" />
 	<button onclick="data()">Add</button>
+	
+	
 	<table id="list" border="1">
 		
 	</table>
@@ -21,17 +23,16 @@ var names = [];
 
 function data(){
 
-	var value=document.getElementById('name').value;
-
-	names.push(value);  // add in last value in arr
+	var name=document.getElementById('name').value;
+	names.push(name);
+	
+	var element=document.getElementById('list');
 	
 	for(var i=0;i<names.length;i++)
 	{
-		var html=`<tr>
-					<td>${names[i]}</td>
-				  </tr>`;
+		var html=`<tr> <td> ${names[i]} </td></tr>`;
 	}
-	list.insertAdjacentHTML("beforeend",html);
+	element.insertAdjacentHTML('beforeend',html);
 }
 
 </script>
