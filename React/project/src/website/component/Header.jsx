@@ -53,7 +53,7 @@ function Header() {
                                     <li><NavLink to="/properties">Properties</NavLink></li>
                                     <li><NavLink to="/property-details">Property Details</NavLink></li>
                                     <li><NavLink to="/contact">Contact Us</NavLink></li>
-                                    <li><NavLink to="#"><i className="fa fa-calendar" /> Schedule a visit</NavLink></li>
+                                    <li><NavLink to="/signup" className="w-100 h-50 p-1"> <span className='fa fa-user'></span> Signup</NavLink></li>
                                 </ul>
                                 <a className="menu-trigger">
                                     <span>Menu</span>
