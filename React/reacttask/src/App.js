@@ -1,9 +1,14 @@
 import Class_component from "./Component/Class_component"
 import Function_component from "./Component/Function_component"
 import Jsx from "./JSX/Jsx"
+import CSS from "./CSS/CSS.jsx"
+import My_module_css from "./Module_css/My_module_css.jsx"
+
 import Main_layout from "./Layout/Main_layout"
 import Main_props from "./Props/Main_props"
 import Routing from "./Routing/Routing"
+import Main_Sass from "./Sass/Main_Sass.jsx"
+
 
 function App() {
   return (
@@ -15,11 +20,23 @@ function App() {
         //<Jsx/>
         //<Main_layout/>
 
+        //css
+
+
+        //<CSS/>
+        //<Main_Sass/>
+        //<My_module_css/>
+       
+        
+
         //props
        // <Main_props/>
 
        //Routing
-       <Routing/>
+       //<Routing/>
+
+        
+
       }
     </div>
   )

@@ -19,6 +19,9 @@ function App() {
           <Route path="/contact" element={<> <Header/> <Contact/> <Footer/></>}></Route>
           <Route path="/signup" element={<> <Header/> <Signup/> <Footer/></>}></Route>
           <Route path="/login" element={<> <Header/> <Login/> <Footer/></>}></Route>
+
+          
+
         </Routes>
       </BrowserRouter>
     </div>
