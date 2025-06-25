@@ -8,6 +8,8 @@ import Main_layout from "./Layout/Main_layout"
 import Main_props from "./Props/Main_props"
 import Routing from "./Routing/Routing"
 import Main_Sass from "./Sass/Main_Sass.jsx"
+import Func_state from "./State/Func_state/Func_state.jsx"
+import Class_state from "./State/Class_state/Class_state.jsx"
 
 
 function App() {
@@ -31,6 +33,11 @@ function App() {
 
         //props
        // <Main_props/>
+
+
+       // state
+       //<Func_state/>
+        <Class_state/>
 
        //Routing
        //<Routing/>
