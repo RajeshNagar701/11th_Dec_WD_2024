@@ -8,11 +8,8 @@ The state object is where you store property values that belong to the component
 When the state object changes, the component re-renders.
 
 The React useState Hook allows us to track state in a function component.
-
 Import useState
-
 We initialize our state by calling useState in our function component.
-
 useState accepts an initial state and returns two values:
 
 The current state.

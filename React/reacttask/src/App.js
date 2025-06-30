@@ -10,6 +10,7 @@ import Routing from "./Routing/Routing"
 import Main_Sass from "./Sass/Main_Sass.jsx"
 import Func_state from "./State/Func_state/Func_state.jsx"
 import Class_state from "./State/Class_state/Class_state.jsx"
+import Class_life from "./LifeCycle/Class_life/Class_life.jsx"
 
 
 function App() {
@@ -37,7 +38,11 @@ function App() {
 
        // state
        //<Func_state/>
-        <Class_state/>
+      //<Class_state/>
+
+       //Life cycle
+       
+       <Class_life/>
 
        //Routing
        //<Routing/>
