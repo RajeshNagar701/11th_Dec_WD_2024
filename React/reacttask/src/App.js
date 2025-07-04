@@ -37,14 +37,15 @@ function App() {
        // <Main_props/>
 
 
-       // state
+       //state
        //<Func_state/>
-      //<Class_state/>
+       //<Class_state/>
 
        //Life cycle
        
        //<Class_life/>
-        <Func_life/>
+       //<Func_life/>
+
        //Routing
        //<Routing/>
 

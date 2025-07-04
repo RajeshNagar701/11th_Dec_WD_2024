@@ -8,7 +8,6 @@ function Func_life() {
         number:1
     })
 
-
     useEffect(() => {
         console.log('Component DidUpdate/Update')
     }, [data.number]);
