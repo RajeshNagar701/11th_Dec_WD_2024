@@ -17,14 +17,14 @@ function Add_categories() {
 
                             <div className="container mt-3">
                                
-                                <form action="/action_page.php">
+                                <form method="post">
                                     <div className="form-floating mb-3 mt-3">
-                                        <input type="text" className="form-control" id="email" placeholder="Enter email" name="email" />
-                                        <label htmlFor="email">Email</label>
+                                        <input type="text" className="form-control" id="email" placeholder="Enter Categories Name" name="cate_name" />
+                                        <label htmlFor="email">Categories Name</label>
                                     </div>
                                     <div className="form-floating mt-3 mb-3">
-                                        <input type="text" className="form-control" id="pwd" placeholder="Enter password" name="pswd" />
-                                        <label htmlFor="pwd">Password</label>
+                                        <input type="url" className="form-control" id="pwd" placeholder="Enter Categories image url" name="cate_img" />
+                                        <label htmlFor="pwd">Categories URL</label>
                                     </div>
                                     <button type="submit" className="btn btn-primary">Submit</button>
                                 </form>

@@ -15,6 +15,9 @@ import Add_categories from "./admin/pages/Add_categories";
 import Manage_categories from "./admin/pages/Manage_categories";
 import Add_properties from "./admin/pages/Add_properties";
 import Manage_properties from "./admin/pages/Manage_properties";
+import Manage_customer from "./admin/pages/Manage_customer";
+import Manage_feedaback from "./admin/pages/Manage_feedaback";
+import Manage_booking from "./admin/pages/Manage_booking";
 
 function App() {
   return (
@@ -38,6 +41,10 @@ function App() {
 
           <Route path="/add_properties" element={<> <AHeader/> <Add_properties/> <AFooter/></>}></Route>
           <Route path="/manage_properties" element={<> <AHeader/> <Manage_properties/> <AFooter/></>}></Route>
+
+          <Route path="/manage_customer" element={<> <AHeader/> <Manage_customer/> <AFooter/></>}></Route>
+          <Route path="/manage_feedback" element={<> <AHeader/> <Manage_feedaback/> <AFooter/></>}></Route>
+          <Route path="/manage_booking" element={<> <AHeader/> <Manage_booking/> <AFooter/></>}></Route>
 
         </Routes>
       </BrowserRouter>

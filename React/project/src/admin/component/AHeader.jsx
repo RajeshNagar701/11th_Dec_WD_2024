@@ -64,12 +64,12 @@ function AHeader() {
                                             <Link class="dropdown-item" to="/manage_properties">Manage Properties</Link>
                                         </div>
                                     </li>
-                                    <li><NavLink to="/property-details">Customer</NavLink></li>
+                                    <li><NavLink to="/manage_customer">Customer</NavLink></li>
                                     <li class="dropdown">
                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Booking Work</a>
                                         <div class="dropdown-menu">
-                                            <Link class="dropdown-item" to="#">Booking Reoprt</Link>
-                                            <Link class="dropdown-item" to="#">Feedback</Link>
+                                            <Link class="dropdown-item" to="/manage_booking">Booking Reoprt</Link>
+                                            <Link class="dropdown-item" to="/manage_feedback">Feedback</Link>
                                         </div>
                                     </li>
                                     <li><NavLink to="/admin-login" className="w-100 h-50 p-1"> <span className='fa fa-user'></span> Logout</NavLink></li>
