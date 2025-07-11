@@ -12,6 +12,8 @@ import Func_state from "./State/Func_state/Func_state.jsx"
 import Class_state from "./State/Class_state/Class_state.jsx"
 import Class_life from "./LifeCycle/Class_life/Class_life.jsx"
 import Func_life from "./LifeCycle/Func_life/Func_life.jsx"
+import MainReactBootstrap from "./ReactBootstrap/MainReactBootstrap.jsx"
+import MUI from "./MUI/MUI.jsx"
 
 
 function App() {
@@ -30,8 +32,6 @@ function App() {
         //<CSS/>
         //<Main_Sass/>
         //<My_module_css/>
-       
-        
 
         //props
        // <Main_props/>
@@ -49,8 +49,9 @@ function App() {
        //Routing
        //<Routing/>
 
-        
-
+       //component ready 
+       // <MainReactBootstrap/>
+       // <MUI/>
       }
     </div>
   )

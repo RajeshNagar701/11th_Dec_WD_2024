@@ -1,8 +1,19 @@
+
+/*
+
+The best way to consume React-Bootstrap is via the npm package which you can install with npm
+
+npm install react-bootstrap bootstrap
+
+*/
+
+
+
 import React, { useState } from 'react'
 import {
     Button, Alert, Accordion, Badge, Breadcrumb, ButtonGroup, Card, Carousel
     , Dropdown, Figure, ListGroup, Modal, Navbar, Nav, Container, NavDropdown,
-    Form, FormControl, Row, Col
+    Form, FormControl, Row, Col, Table
 } from 'react-bootstrap';
 
 
@@ -15,163 +26,61 @@ function MainReactBootstrap() {
 
     return (
         <div className='container'>
-            <>
-                <Button variant="primary">Primary</Button>
-                <Button variant="secondary">Secondary</Button>
-                <Button variant="success">Success</Button>
-                <Button variant="warning">Warning</Button>
-                <Button variant="danger">Danger</Button> 
-                <Button variant="info">Info</Button>
-                <Button variant="light">Light</Button> 
-                <Button variant="dark">Dark</Button>
-                <Button variant="link">Link</Button>
-                <hr />
-                <Alert variant="primary">I am alert</Alert>
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="success">Success</Button>
+            <Button variant="warning">Warning</Button>
+            <Button variant="danger">Danger</Button>
+            <Button variant="info">Info</Button>
+            <Button variant="light">Light</Button>
+            <Button variant="dark">Dark</Button>
+            <Button variant="link">Link</Button>
+            <br /><br />
+            <Button variant="outline-primary">Primary</Button>
+            <Button variant="outline-secondary">Secondary</Button>
+            <Button variant="outline-success">Success</Button>
+            <Button variant="outline-warning">Warning</Button>
+            <Button variant="outline-danger">Danger</Button>
+            <Button variant="outline-info">Info</Button>
+            <Button variant="outline-light">Light</Button>
+            <Button variant="outline-dark">Dark</Button>
+            <br /><br />
+            <Button variant="primary" size="lg">
+                Large button
+            </Button>
+            <Button variant="primary">
+                Large button
+            </Button>
+            <Button variant="primary" size="sm">
+                Small button
+            </Button>
 
-                {[
-                    'primary',
-                    'secondary',
-                    'success',
-                    'danger',
-                    'warning',
-                    'info',
-                    'light',
-                    'dark',
-                ].map((variant) => (
-                    <Alert key={variant} variant={variant}>
-                        This is a {variant} alert—check it out!
-                    </Alert>
-                ))}
+            <br />
+            <br />
+            <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_197f94b088c%20text%20%7B%20fill%3A%23999%3Bfont-weight%3Anormal%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_197f94b088c%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23373940%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22107.1953125%22%20y%3D%2296.3%22%3E286x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" />
+                <Card.Body>
+                    <Card.Title>Card Title</Card.Title>
+                    <Card.Text>
+                        Some quick example text to build on the card title and make up the
+                        bulk of the card's content.
+                    </Card.Text>
+                    <Button variant="primary">Go somewhere</Button>
+                </Card.Body>
+            </Card>
 
-                <hr />
-                <Accordion defaultActiveKey="0">
-                    <Accordion.Item eventKey="0">
-                        <Accordion.Header>Accordion Item #1</Accordion.Header>
-                        <Accordion.Body>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                            est laborum.
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1">
-                        <Accordion.Header>Accordion Item #2</Accordion.Header>
-                        <Accordion.Body>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                            est laborum.
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion>
-                <hr />
-                <h1>
-                    Example heading <Badge bg="secondary">New</Badge>
-                </h1>
-                <hr />
-                <Breadcrumb>
-                    <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-                    <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-                        Library
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item active>Data</Breadcrumb.Item>
-                </Breadcrumb>
-                <hr />
-                <ButtonGroup aria-label="Basic example">
-                    <Button variant="secondary">Left</Button>
-                    <Button variant="secondary">Middle</Button>
-                    <Button variant="secondary">Right</Button>
-                </ButtonGroup>
-                <hr />
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
-                    <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
-                    </Card.Body>
-                </Card>
-                <hr />
-                <Carousel>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="holder.js/800x400?text=First slide&bg=373940"
-                            alt="First slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="holder.js/800x400?text=Second slide&bg=282c34"
-                            alt="Second slide"
-                        />
-
-                        <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="holder.js/800x400?text=Third slide&bg=20232a"
-                            alt="Third slide"
-                        />
-
-                        <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
-                <hr />
-                <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        Dropdown Button
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-                <hr />
-                <Figure>
-                    <Figure.Image
-                        width={171}
-                        height={180}
-                        alt="171x180"
-                        src="holder.js/171x180"
-                    />
-                    <Figure.Caption>
-                        Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </Figure.Caption>
-                </Figure>
-                <hr />
-                <ListGroup>
-                    <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                    <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                    <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                </ListGroup>
-            </>
-            <hr />
+            <br /><br />
+            <Form>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="name@example.com" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Example textarea</Form.Label>
+                    <Form.Control as="textarea" rows={3} />
+                </Form.Group>
+            </Form>
+            <br /><br />
             <Button variant="primary" onClick={handleShow}>
                 Launch demo modal
             </Button>
@@ -180,7 +89,7 @@ function MainReactBootstrap() {
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
@@ -190,73 +99,67 @@ function MainReactBootstrap() {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <hr />
-            <Navbar bg="light" expand="lg">
-                <Container fluid>
-                    <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll">
-                        <Nav
-                            className="me-auto my-2 my-lg-0"
-                            style={{ maxHeight: '100px' }}
-                            navbarScroll
-                        >
-                            <Nav.Link href="#action1">Home</Nav.Link>
-                            <Nav.Link href="#action2">Link</Nav.Link>
-                            <NavDropdown title="Link" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action5">
-                                    Something else here
-                                </NavDropdown.Item>
-                            </NavDropdown>
-                            <Nav.Link href="#" disabled>
-                                Link
-                            </Nav.Link>
-                        </Nav>
-                        <Form className="d-flex">
-                            <FormControl
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-success">Search</Button>
-                        </Form>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-            <hr />
-            <Container fluid="md">
-                <Row>
-                    <Col variant="primary">1 of 1</Col>
-                    <Col variant="primary">1 of 1</Col>
-                    <Col variant="primary">1 of 1</Col>
-                    <Col variant="primary">1 of 1</Col>
-                </Row>
-            </Container>
-            <hr />
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
+            <br /><br />
+            <Table striped bordered hover size="sm">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td colSpan={2}>Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </Table>
+
+            <br /><br />
+
+            <Row>
+                <Col xs={12} md={8}>
+                    xs=12 md=8
+                </Col>
+                <Col xs={6} md={4}>
+                    xs=6 md=4
+                </Col>
+            </Row>
+
+            {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
+            <Row>
+                <Col xs={6} md={4}>
+                    xs=6 md=4
+                </Col>
+                <Col xs={6} md={4}>
+                    xs=6 md=4
+                </Col>
+                <Col xs={6} md={4}>
+                    xs=6 md=4
+                </Col>
+            </Row>
+
+            {/* Columns are always 50% wide, on mobile and desktop */}
+            <Row>
+                <Col xs={6}>xs=6</Col>
+                <Col xs={6}>xs=6</Col>
+            </Row>
         </div>
     )
 }
