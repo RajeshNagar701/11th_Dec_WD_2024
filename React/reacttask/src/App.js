@@ -14,6 +14,8 @@ import Class_life from "./LifeCycle/Class_life/Class_life.jsx"
 import Func_life from "./LifeCycle/Func_life/Func_life.jsx"
 import MainReactBootstrap from "./ReactBootstrap/MainReactBootstrap.jsx"
 import MUI from "./MUI/MUI.jsx"
+import Styled_component from "./Styled_component/Styled_component.jsx"
+
 
 
 function App() {
@@ -51,7 +53,11 @@ function App() {
 
        //component ready 
        // <MainReactBootstrap/>
-       // <MUI/>
+       //<MUI/>
+       
+        //styled component
+        <Styled_component/>
+
       }
     </div>
   )
