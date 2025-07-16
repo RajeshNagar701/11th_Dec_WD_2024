@@ -15,6 +15,7 @@ import Func_life from "./LifeCycle/Func_life/Func_life.jsx"
 import MainReactBootstrap from "./ReactBootstrap/MainReactBootstrap.jsx"
 import MUI from "./MUI/MUI.jsx"
 import Styled_component from "./Styled_component/Styled_component.jsx"
+import Form_handeling from "./Form_handeling/Form_handeling.jsx"
 
 
 
@@ -56,7 +57,11 @@ function App() {
        //<MUI/>
        
         //styled component
-        <Styled_component/>
+        //<Styled_component/>
+
+
+        // project work
+        <Form_handeling/>
 
       }
     </div>
