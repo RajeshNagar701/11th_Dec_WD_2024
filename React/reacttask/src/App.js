@@ -16,6 +16,7 @@ import MainReactBootstrap from "./ReactBootstrap/MainReactBootstrap.jsx"
 import MUI from "./MUI/MUI.jsx"
 import Styled_component from "./Styled_component/Styled_component.jsx"
 import Form_handeling from "./Form_handeling/Form_handeling.jsx"
+import Table_handeling from "./Form_handeling/Table_handeling.jsx"
 
 
 
@@ -61,8 +62,9 @@ function App() {
 
 
         // project work
-        <Form_handeling/>
+        //<Form_handeling/>
 
+        <Table_handeling/>
       }
     </div>
   )

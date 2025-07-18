@@ -21,6 +21,13 @@ function Form_handeling() {
          setFormhandel({ ...formvalue,name:"",email:"",password:"" });
     }
 
+    const deleteHandel = (id) => {
+        var filterdata= data.filter((value,index,arr)=> { return value.id!=id});
+        setData(filterdata);
+    }
+
+
+
     return (
         <div>
             <div className="container mt-3">
@@ -52,6 +59,7 @@ function Form_handeling() {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Password</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +72,9 @@ function Form_handeling() {
                                         <td>{value.name}</td>
                                         <td>{value.email}</td>
                                         <td>{value.password}</td>
+                                        <td>
+                                            <button onClick={()=>deleteHandel(value.id)} className='btn btn-danger'>Delete{value.id}</button>
+                                        </td>
                                     </tr>
                                 )
                             })
