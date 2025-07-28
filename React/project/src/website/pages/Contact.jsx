@@ -1,6 +1,28 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
 
 function Contact() {
+
+    const [formdata,setFormdata]=useState({
+        id: "",
+        name: "",
+        email: "",
+        mobile: "",
+        message: ""
+    })
+
+const changeHandel=(e)=>{
+     setFormdata({...formdata,id:new Date().getTime().toString(),[e.target.name]:e.target.value}); 
+     console.log(formdata);      
+}
+
+const submitHandel=async(e)=>{
+    e.preventDefault();
+    const res=await axios.post(`http://localhost:3000/contact`,formdata);
+    console.log(res);
+    setFormdata({...formdata,name:"",email:"",mobile:"",message:""});
+}
+
     return (
         <div>
             <div className="page-heading header-text">
@@ -49,30 +71,30 @@ function Contact() {
                             </div>
                         </div>
                         <div className="col-lg-5">
-                            <form id="contact-form" action method="post">
+                            <form id="contact-form" action method="post" onSubmit={submitHandel}>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <fieldset>
                                             <label htmlFor="name">Full Name</label>
-                                            <input type="name" name="name" id="name" placeholder="Your Name..." autoComplete="on" required />
+                                            <input type="name" onChange={changeHandel} value={formdata.name} name="name" id="name" placeholder="Your Name..." autoComplete="on" required />
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-12">
                                         <fieldset>
                                             <label htmlFor="email">Email Address</label>
-                                            <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required />
+                                            <input type="text" onChange={changeHandel} value={formdata.email} name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required />
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-12">
                                         <fieldset>
-                                            <label htmlFor="subject">Subject</label>
-                                            <input type="subject" name="subject" id="subject" placeholder="Subject..." autoComplete="on" />
+                                            <label htmlFor="subject">Mobile</label>
+                                            <input type="number" onChange={changeHandel} value={formdata.mobile} name="mobile" id="mobile" placeholder="Mobile..." autoComplete="on" />
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-12">
                                         <fieldset>
                                             <label htmlFor="message">Message</label>
-                                            <textarea name="message" id="message" placeholder="Your Message" defaultValue={""} />
+                                            <textarea name="message" onChange={changeHandel} value={formdata.message} id="message" placeholder="Your Message" defaultValue={""} />
                                         </fieldset>
                                     </div>
                                     <div className="col-lg-12">

@@ -1,6 +1,28 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
 
 function Add_categories() {
+
+
+    const [formdata, setFormdata] = useState({
+        id: "",
+        cate_name: "",
+        cate_image: ""
+    });
+
+    const changeHandel = (e) => {
+        setFormdata({ ...formdata, id: new Date().getTime().toString(), [e.target.name]: e.target.value });
+        console.log(formdata);
+    }
+
+    const submitHandel = async (e) => {
+        e.preventDefault();
+        const res = await axios.post(`http://localhost:3000/categories`, formdata);
+        console.log(res);
+        setFormdata({ ...formdata, cate_name: "", cate_image: ""});
+    }
+
+    
     return (
         <div>
 
@@ -16,14 +38,14 @@ function Add_categories() {
                             </div>
 
                             <div className="container mt-3">
-                               
-                                <form method="post">
+
+                                <form method="post" onSubmit={submitHandel}>
                                     <div className="form-floating mb-3 mt-3">
-                                        <input type="text" className="form-control" id="email" placeholder="Enter Categories Name" name="cate_name" />
+                                        <input type="text" onChange={changeHandel} value={formdata.cate_name} className="form-control"  placeholder="Enter Categories Name" name="cate_name" />
                                         <label htmlFor="email">Categories Name</label>
                                     </div>
                                     <div className="form-floating mt-3 mb-3">
-                                        <input type="url" className="form-control" id="pwd" placeholder="Enter Categories image url" name="cate_img" />
+                                        <input type="url" onChange={changeHandel} value={formdata.cate_img} className="form-control" id="pwd" placeholder="Enter Categories image url" name="cate_image" />
                                         <label htmlFor="pwd">Categories URL</label>
                                     </div>
                                     <button type="submit" className="btn btn-primary">Submit</button>
