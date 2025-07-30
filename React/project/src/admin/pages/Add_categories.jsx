@@ -45,7 +45,7 @@ function Add_categories() {
                                         <label htmlFor="email">Categories Name</label>
                                     </div>
                                     <div className="form-floating mt-3 mb-3">
-                                        <input type="url" onChange={changeHandel} value={formdata.cate_img} className="form-control" id="pwd" placeholder="Enter Categories image url" name="cate_image" />
+                                        <input type="url" onChange={changeHandel} value={formdata.cate_image} className="form-control" id="pwd" placeholder="Enter Categories image url" name="cate_image" />
                                         <label htmlFor="pwd">Categories URL</label>
                                     </div>
                                     <button type="submit" className="btn btn-primary">Submit</button>

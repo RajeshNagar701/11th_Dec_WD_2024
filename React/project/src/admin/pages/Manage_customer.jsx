@@ -1,6 +1,25 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 function Manage_customer() {
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const [users, setUsers] = useState([]);
+
+    const getData = async () => {
+        const res = await axios.get(`http://localhost:3000/user`);
+        console.log(res.data);
+        setUsers(res.data);
+    }
+
+
+    const deleteData = async (id) => {
+        const res = await axios.delete(`http://localhost:3000/user/${id}`);
+        console.log(res.data);
+        getData();
+    }
     return (
         <div className="featured section">
             <div className="container">
@@ -17,23 +36,34 @@ function Manage_customer() {
                             <table className="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Firstname</th>
-                                        <th>Lastname</th>
+                                        <th>ID</th>
+                                        <th>Name</th>
                                         <th>Email</th>
+                                        <th>Mobile</th>
                                         <th className='text-center'>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>john@example.com</td>
-                                        <td className='text-center'>
-                                            <button className='btn btn-danger me-1'>Delete</button>
-                                            <button className='btn btn-primary me-1'>Edit</button>
-                                        </td>
-                                    </tr>
-                                   
+                                    {
+
+                                        users.map((value, index, entarr) => {
+
+                                            return (
+                                                <tr>
+                                                    <td>{value.id}</td>
+                                                    <td>{value.name}</td>
+                                                    <td>{value.email}</td>
+                                                    <td>{value.mobile}</td>
+                                                    <td className='text-center'>
+                                                        <button onClick={() => deleteData(value.id)} className='btn btn-danger me-1'>Delete</button>
+                                                        <button className='btn btn-primary me-1'>Edit</button>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        })
+
+                                    }
+
                                 </tbody>
                             </table>
 
