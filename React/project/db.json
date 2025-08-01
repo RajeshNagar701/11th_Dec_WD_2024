@@ -7,6 +7,14 @@
       "password": "1234",
       "mobile": "1234567891",
       "status": "Unblock"
+    },
+    {
+      "id": "1754050606766",
+      "name": "Rohan",
+      "email": "rohan@gmail.com",
+      "password": "1234",
+      "mobile": "1236547891",
+      "status": "Unblock"
     }
   ],
   "categories": [

@@ -1,19 +1,19 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-
+import { Link } from "react-router-dom";
 function Signup() {
 
     const [formdata, setFormdata] = useState({
         id: "",
         name: "",
         email: "",
-        password:"",
+        password: "",
         mobile: "",
-        status:""
+        status: ""
     })
 
     const changeHandel = (e) => {
-        setFormdata({ ...formdata, id: new Date().getTime().toString(),status:"Unblock", [e.target.name]: e.target.value });
+        setFormdata({ ...formdata, id: new Date().getTime().toString(), status: "Unblock", [e.target.name]: e.target.value });
         console.log(formdata);
     }
 
@@ -86,6 +86,9 @@ function Signup() {
                                         <fieldset>
                                             <button type="submit" id="form-submit" className="orange-button">Signup</button>
                                         </fieldset>
+                                    </div>
+                                    <div className="col-lg-12">
+                                        <Link className='float-end' to="/login">If you already registere then Login here</Link>
                                     </div>
                                 </div>
                             </form>

@@ -14,7 +14,6 @@ function Manage_customer() {
         setUsers(res.data);
     }
 
-
     const deleteData = async (id) => {
         const res = await axios.delete(`http://localhost:3000/user/${id}`);
         console.log(res.data);
