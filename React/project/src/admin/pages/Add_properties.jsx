@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
 
 function Add_properties() {
 
@@ -19,12 +20,12 @@ function Add_properties() {
         id: "",
         cate_id: "",
         prop_name: "",
-        bedroom:"",
-        bathroom:"",
-        floor:"",
-        prop_area:"",
-        price:"",
-        prop_image:""
+        bedroom: "",
+        bathroom: "",
+        floor: "",
+        prop_area: "",
+        price: "",
+        prop_image: ""
     });
 
     const changeHandel = (e) => {
@@ -32,11 +33,58 @@ function Add_properties() {
         console.log(formdata);
     }
 
+    function validation() {
+        let ans = true;
+        if (formdata.cate_id == "") {
+            toast.error('Category Name Field is required');
+            return false;
+            ans = false;
+        }
+        if (formdata.prop_name == "") {
+            toast.error('Product Name Field is required');
+            return false;
+            ans = false;
+        }
+        if (formdata.bedroom == "") {
+            toast.error('Bedroom Field is required');
+            return false;
+            ans = false;
+        }
+        if (formdata.bathroom == "") {
+            toast.error('bathroom Field is required');
+            return false;
+            ans = false;
+        }
+         if (formdata.floor == "") {
+            toast.error('Floor Field is required');
+            return false;
+            ans = false;
+        }
+         if (formdata.prop_area == "") {
+            toast.error('Area Field is required');
+            return false;
+            ans = false;
+        }
+         if (formdata.price == "") {
+            toast.error('Price Field is required');
+            return false;
+            ans = false;
+        }
+         if (formdata.prop_image == "") {
+            toast.error('Image Field is required');
+            return false;
+            ans = false;
+        }
+
+        return ans;
+    }
     const submitHandel = async (e) => {
         e.preventDefault();
-        const res = await axios.post(`http://localhost:3000/properties`, formdata);
-        console.log(res);
-        setFormdata({ ...formdata, cate_id: "",prop_name: "",bedroom:"",bathroom:"",floor:"",prop_area:"", price:"",prop_image:""});
+        if (validation()) {
+            const res = await axios.post(`http://localhost:3000/properties`, formdata);
+            console.log(res);
+            setFormdata({ ...formdata, cate_id: "", prop_name: "", bedroom: "", bathroom: "", floor: "", prop_area: "", price: "", prop_image: "" });
+        }
     }
     return (
         <div>
@@ -53,43 +101,43 @@ function Add_properties() {
                             </div>
 
                             <div className="container mt-3">
-                               
+
                                 <form method="post" onSubmit={submitHandel}>
                                     <div className="form-floating mb-3 mt-3">
                                         <select onChange={changeHandel} className="form-control" name="cate_id">
-                                                <option value="">Select Categories Name</option>
-                                                {
-                                                    categories.map((value)=>{
-                                                        return(
-                                                            <option value={value.id}>{value.cate_name}</option>
-                                                        )
-                                                    })
-                                                }
-                                        </select>    
+                                            <option value="">Select Categories Name</option>
+                                            {
+                                                categories.map((value) => {
+                                                    return (
+                                                        <option value={value.id}>{value.cate_name}</option>
+                                                    )
+                                                })
+                                            }
+                                        </select>
                                         <label htmlFor="email">Select Categories Name</label>
                                     </div>
                                     <div className="form-floating mb-3 mt-3">
-                                        <input type="text" onChange={changeHandel} value={formdata.prop_name} className="form-control"  placeholder="Enter Properies Name" name="prop_name" />
+                                        <input type="text" onChange={changeHandel} value={formdata.prop_name} className="form-control" placeholder="Enter Properies Name" name="prop_name" />
                                         <label htmlFor="email">Properies Name</label>
                                     </div>
                                     <div className="form-floating mb-3 mt-3">
-                                        <input type="number" onChange={changeHandel} value={formdata.bedroom} className="form-control"  placeholder="Enter No of bedroom" name="bedroom" />
+                                        <input type="number" onChange={changeHandel} value={formdata.bedroom} className="form-control" placeholder="Enter No of bedroom" name="bedroom" />
                                         <label htmlFor="email">No of Bedroom</label>
                                     </div>
                                     <div className="form-floating mb-3 mt-3">
-                                        <input type="number" onChange={changeHandel} value={formdata.bathroom} className="form-control"  placeholder="Enter No of bathroom" name="bathroom" />
+                                        <input type="number" onChange={changeHandel} value={formdata.bathroom} className="form-control" placeholder="Enter No of bathroom" name="bathroom" />
                                         <label htmlFor="email">No of Bathroom	</label>
                                     </div>
-                                     <div className="form-floating mb-3 mt-3">
-                                        <input type="number" onChange={changeHandel} value={formdata.floor} className="form-control"  placeholder="Enter No of floor" name="floor" />
+                                    <div className="form-floating mb-3 mt-3">
+                                        <input type="number" onChange={changeHandel} value={formdata.floor} className="form-control" placeholder="Enter No of floor" name="floor" />
                                         <label htmlFor="email">No of Floor		</label>
                                     </div>
                                     <div className="form-floating mb-3 mt-3">
-                                        <input type="text" onChange={changeHandel} value={formdata.prop_area} className="form-control"  placeholder="Enter Properies Area" name="prop_area" />
+                                        <input type="text" onChange={changeHandel} value={formdata.prop_area} className="form-control" placeholder="Enter Properies Area" name="prop_area" />
                                         <label htmlFor="email">Properies Area</label>
                                     </div>
                                     <div className="form-floating mb-3 mt-3">
-                                        <input type="number" onChange={changeHandel} value={formdata.price} className="form-control"  placeholder="Enter Properies Price" name="price" />
+                                        <input type="number" onChange={changeHandel} value={formdata.price} className="form-control" placeholder="Enter Properies Price" name="price" />
                                         <label htmlFor="email">Properies Price</label>
                                     </div>
                                     <div className="form-floating mt-3 mb-3">

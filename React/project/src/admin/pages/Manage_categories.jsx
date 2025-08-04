@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { data } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Manage_categories() {
 
@@ -19,6 +20,7 @@ function Manage_categories() {
       const deleteData = async (id) => {
         const res = await axios.delete(`http://localhost:3000/categories/${id}`);
         console.log(res.data);
+        toast.success('Data Deleted Success');
         getData();
     }
 

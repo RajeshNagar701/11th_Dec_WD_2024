@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
 
 function Manage_customer() {
     useEffect(() => {
@@ -17,7 +18,9 @@ function Manage_customer() {
     const deleteData = async (id) => {
         const res = await axios.delete(`http://localhost:3000/user/${id}`);
         console.log(res.data);
+        toast.success('Data Deleted Success');
         getData();
+
     }
     return (
         <div className="featured section">

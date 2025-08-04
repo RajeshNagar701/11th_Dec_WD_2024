@@ -1,4 +1,12 @@
 {
+  "admin": [
+    {
+      "id": "1753879597600",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "1234"
+    }
+  ],
   "user": [
     {
       "id": "1753879597600",
@@ -6,14 +14,6 @@
       "email": "nagar@gmail.com",
       "password": "1234",
       "mobile": "1234567891",
-      "status": "Unblock"
-    },
-    {
-      "id": "1754050606766",
-      "name": "Rohan",
-      "email": "rohan@gmail.com",
-      "password": "1234",
-      "mobile": "1236547891",
       "status": "Unblock"
     }
   ],

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 function Add_categories() {
 
@@ -15,11 +16,30 @@ function Add_categories() {
         console.log(formdata);
     }
 
+    function validation() {
+            let ans = true;
+            if (formdata.cate_name == "") {
+                toast.error('Category Name Field is required');
+                ans = false;
+            }    
+            if (formdata.cate_image == "") {
+                toast.error('Category Image URL Field is required');
+                ans = false;
+            }
+           
+            return ans;
+        }
+    
+
     const submitHandel = async (e) => {
         e.preventDefault();
-        const res = await axios.post(`http://localhost:3000/categories`, formdata);
-        console.log(res);
-        setFormdata({ ...formdata, cate_name: "", cate_image: ""});
+        if(validation())
+        {
+            const res = await axios.post(`http://localhost:3000/categories`, formdata);
+            console.log(res);
+            setFormdata({ ...formdata, cate_name: "", cate_image: ""});
+        }
+        
     }
 
     

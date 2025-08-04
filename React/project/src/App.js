@@ -19,10 +19,14 @@ import Manage_customer from "./admin/pages/Manage_customer";
 import Manage_feedaback from "./admin/pages/Manage_feedaback";
 import Manage_booking from "./admin/pages/Manage_booking";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <ToastContainer></ToastContainer>
         <Routes>
           <Route path="/" element={<> <Header/> <Index/> <Footer/></>}></Route>
           <Route path="/properties" element={<> <Header/> <Properties/> <Footer/></>}></Route>

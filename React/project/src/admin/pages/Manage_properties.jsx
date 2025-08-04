@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
 
 function Manage_properties() {
 
@@ -18,6 +19,7 @@ function Manage_properties() {
       const deleteData = async (id) => {
         const res = await axios.delete(`http://localhost:3000/properties/${id}`);
         console.log(res.data);
+        toast.success('Data Deleted Success');
         getData();
     }
 
