@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
+import swal from 'sweetalert'; 
 function Signup() {
 
     const [formdata, setFormdata] = useState({
@@ -49,6 +50,7 @@ function Signup() {
         {
             const res = await axios.post(`http://localhost:3000/user`, formdata);
             console.log(res);
+            swal("Good job!", "Signup Success!", "success");
             setFormdata({ ...formdata, name: "", email: "", mobile: "", password: "" });
         }
     }

@@ -1,7 +1,18 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import swal from 'sweetalert';  
 
 function Header() {
+
+    const redirect=useNavigate();
+    const logout=()=>{
+        localStorage.removeItem('u_id');
+        localStorage.removeItem('u_name');
+        localStorage.removeItem('u_email');
+        swal("Good job!", "Logout Success!", "success");
+        redirect('/');
+    }
+
     return (
         <div>
             {/* ***** Preloader Start ***** */}
@@ -23,6 +34,18 @@ function Header() {
                             <ul className="info">
                                 <li><i className="fa fa-envelope" /> info@company.com</li>
                                 <li><i className="fa fa-map" /> Sunny Isles Beach, FL 33160</li>
+
+                                {(() => {
+                                    if (localStorage.getItem('u_name')) {
+                                        return (
+                                            <li><i className="fa fa-user" />
+                                                Welcome : {localStorage.getItem('u_name')}
+                                            </li>
+                                        )
+                                    }
+                                })()}
+
+
                             </ul>
                         </div>
                         <div className="col-lg-4 col-md-4">
@@ -46,6 +69,7 @@ function Header() {
                                 <a href="index.html" className="logo">
                                     <h1>Villa</h1>
                                 </a>
+
                                 {/* ***** Logo End ***** */}
                                 {/* ***** Menu Start ***** */}
                                 <ul className="nav">
@@ -53,7 +77,20 @@ function Header() {
                                     <li><NavLink to="/properties">Properties</NavLink></li>
                                     <li><NavLink to="/property-details">Property Details</NavLink></li>
                                     <li><NavLink to="/contact">Contact Us</NavLink></li>
-                                    <li><NavLink to="/signup" className="w-100 h-50 p-1"> <span className='fa fa-user'></span> Signup</NavLink></li>
+                                    {(() => {
+                                        if (localStorage.getItem('u_id')) {
+                                            return (
+                                                 <li><a href={void(0)} onClick={logout} className="w-100 h-50 p-1"> Logout</a></li>
+                                            )
+                                        }
+                                        else
+                                        {
+                                            return(
+                                                 <li><NavLink to="/login" className="w-100 h-50 p-1"> <span className='fa fa-user'></span> Logout</NavLink></li>
+                                            )
+                                        }
+                                    })()}
+                                   
                                 </ul>
                                 <a className="menu-trigger">
                                     <span>Menu</span>

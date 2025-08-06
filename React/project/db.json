@@ -15,6 +15,14 @@
       "password": "1234",
       "mobile": "1234567891",
       "status": "Unblock"
+    },
+    {
+      "id": "1754483304340",
+      "name": "akash",
+      "email": "akash@gmail.com",
+      "password": "abc",
+      "mobile": "123456987",
+      "status": "Unblock"
     }
   ],
   "categories": [
@@ -109,6 +117,13 @@
       "email": "rohan@gmail.com",
       "mobile": "1254879",
       "message": "Demo mail"
+    },
+    {
+      "id": "1754482653964",
+      "name": "nirav",
+      "email": "nirav@gmail.com",
+      "mobile": "12547878995",
+      "message": "demo msg"
     }
   ]
 }

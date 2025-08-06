@@ -1,14 +1,21 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import swal from 'sweetalert';  
+
+
+
 
 function Login() {
+
+
+    const redirect=useNavigate();
 
     const [formdata, setFormdata] = useState({
         email: "",
         password: ""
-    })
+    });
 
     const changeHandel = (e) => {
         setFormdata({ ...formdata, [e.target.name]: e.target.value });
@@ -35,14 +42,20 @@ function Login() {
             const res = await axios.get(`http://localhost:3000/user?email=${formdata.email}`);
             if (res.data.length > 0) {
                 if (formdata.password == res.data[0].password) {
-                    alert('Login Success');
+                    
+                    localStorage.setItem('u_id',res.data[0].id);
+                    localStorage.setItem('u_name',res.data[0].name);
+                    localStorage.setItem('u_email',res.data[0].email);
+                    
+                    redirect('/');    
+                    swal("Good job!", "Login Success!", "success");
                 }
                 else {
-                    alert('Wrong Password');
+                    swal("Error", "Wrong Password!", "error");
                 }
             }
             else {
-                alert('Email does not exist');
+                swal("Error", "Email does not exist! ", "error");
             }
         }
 

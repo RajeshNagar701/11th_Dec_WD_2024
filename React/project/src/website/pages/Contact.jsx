@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
+import swal from 'sweetalert'; 
 
 function Contact() {
 
@@ -41,6 +42,7 @@ function Contact() {
         if (validation()) {
             const res = await axios.post(`http://localhost:3000/contact`, formdata);
             console.log(res);
+            swal("Good job!", "Contact Submitted Success!", "success");
             setFormdata({ ...formdata, name: "", email: "", mobile: "", message: "" });
         }
 

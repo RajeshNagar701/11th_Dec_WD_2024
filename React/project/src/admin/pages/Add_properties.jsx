@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
+import swal from 'sweetalert'; 
 
 function Add_properties() {
 
@@ -83,6 +84,7 @@ function Add_properties() {
         if (validation()) {
             const res = await axios.post(`http://localhost:3000/properties`, formdata);
             console.log(res);
+            swal("Good job!", "Property added Success!", "success");
             setFormdata({ ...formdata, cate_id: "", prop_name: "", bedroom: "", bathroom: "", floor: "", prop_area: "", price: "", prop_image: "" });
         }
     }

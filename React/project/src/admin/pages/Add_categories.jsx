@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
+import swal from 'sweetalert'; 
 
 function Add_categories() {
 
@@ -36,7 +37,7 @@ function Add_categories() {
         if(validation())
         {
             const res = await axios.post(`http://localhost:3000/categories`, formdata);
-            console.log(res);
+            swal("Good job!", "Category added Success!", "success");
             setFormdata({ ...formdata, cate_name: "", cate_image: ""});
         }
         
