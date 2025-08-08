@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate,Link } from 'react-router-dom'
 import swal from 'sweetalert';  
 
 function Header() {
@@ -38,9 +38,11 @@ function Header() {
                                 {(() => {
                                     if (localStorage.getItem('u_name')) {
                                         return (
+                                           
                                             <li><i className="fa fa-user" />
                                                 Welcome : {localStorage.getItem('u_name')}
                                             </li>
+                                           
                                         )
                                     }
                                 })()}
@@ -50,8 +52,7 @@ function Header() {
                         </div>
                         <div className="col-lg-4 col-md-4">
                             <ul className="social-links">
-                                <li><a href="#"><i className="fab fa-facebook" /></a></li>
-                                <li><a href="https://x.com/minthu" target="_blank"><i className="fab fa-twitter" /></a></li>
+                                <li><Link to="/user_profile"><i className="fa fa-user" /> </Link></li>
                                 <li><a href="#"><i className="fab fa-linkedin" /></a></li>
                                 <li><a href="#"><i className="fab fa-instagram" /></a></li>
                             </ul>
@@ -80,13 +81,13 @@ function Header() {
                                     {(() => {
                                         if (localStorage.getItem('u_id')) {
                                             return (
-                                                 <li><a href={void(0)} onClick={logout} className="w-100 h-50 p-1"> Logout</a></li>
+                                                 <li><a href="" onClick={logout} className="w-100 h-50 p-1"> Logout</a></li>
                                             )
                                         }
                                         else
                                         {
                                             return(
-                                                 <li><NavLink to="/login" className="w-100 h-50 p-1"> <span className='fa fa-user'></span> Logout</NavLink></li>
+                                                 <li><NavLink to="/login" className="w-100 h-50 p-1"> <span className='fa fa-user'></span> Login</NavLink></li>
                                             )
                                         }
                                     })()}

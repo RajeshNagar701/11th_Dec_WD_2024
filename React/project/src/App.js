@@ -21,6 +21,8 @@ import Manage_booking from "./admin/pages/Manage_booking";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import User_profile from "./website/pages/User_profile";
+import Edit_profile from "./website/pages/Edit_profile";
 
 function App() {
   return (
@@ -34,8 +36,8 @@ function App() {
           <Route path="/contact" element={<> <Header/> <Contact/> <Footer/></>}></Route>
           <Route path="/signup" element={<> <Header/> <Signup/> <Footer/></>}></Route>
           <Route path="/login" element={<> <Header/> <Login/> <Footer/></>}></Route>
-
-          
+          <Route path="/user_profile" element={<> <Header/> <User_profile/> <Footer/></>}></Route>
+          <Route path="/edit_profile/:id" element={<> <Header/> <Edit_profile/> <Footer/></>}></Route>
 
           <Route path="/admin-login" element={<>  <Admin_login/> <AFooter/></>}></Route>
           <Route path="/dashboard" element={<> <AHeader/> <Dashboard/> <AFooter/></>}></Route>

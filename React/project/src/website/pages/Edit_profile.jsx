@@ -1,63 +1,64 @@
 import axios from 'axios';
-import React, { useState } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams,useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
-import swal from 'sweetalert';  
-
-
-
-
-function Login() {
-
+import swal from 'sweetalert'; 
+function Edit_profile() {
 
     const redirect=useNavigate();
+    useEffect(() => {
+        getData();
+    }, []);
 
     const [formdata, setFormdata] = useState({
+        id: "",
+        name: "",
         email: "",
-        password: ""
-    });
+        mobile: "",
+    })
+
+    const {id}=useParams();
+
+    const getData = async () => {
+        const res = await axios.get(`http://localhost:3000/user/${id}`);
+        setFormdata(res.data)
+    }
+
 
     const changeHandel = (e) => {
         setFormdata({ ...formdata, [e.target.name]: e.target.value });
         console.log(formdata);
     }
 
-    function validation() {
-        let ans = true;
-
-        if (formdata.email == "") {
+    function validation(){
+        let ans=true;
+        if(formdata.name=="")
+        {
+            toast.error('Name Field is required');
+            ans=false;
+        }
+        if(formdata.email=="")
+        {
             toast.error('Email Field is required');
-            ans = false;
+            ans=false;
         }
-        if (formdata.password == "") {
-            toast.error('Password Field is required');
-            ans = false;
+        if(formdata.mobile=="")
+        {
+            toast.error('Mobile Field is required');
+            ans=false;              
         }
-
         return ans;
     }
+
     const submitHandel = async (e) => {
         e.preventDefault();
-        if (validation()) {
-            const res = await axios.get(`http://localhost:3000/user?email=${formdata.email}`);
-            if (res.data.length > 0) {
-                if (formdata.password == res.data[0].password) {
-                    
-                    localStorage.setItem('u_id',res.data[0].id);
-                    localStorage.setItem('u_name',res.data[0].name);
-                    localStorage.setItem('u_email',res.data[0].email);
-                    swal("Good job!", "Login Success!", "success");
-                    redirect('/');
-                }
-                else {
-                    swal("Error", "Wrong Password!", "error");
-                }
-            }
-            else {
-                swal("Error", "Email does not exist! ", "error");
-            }
+        if(validation())
+        {
+            const res = await axios.patch(`http://localhost:3000/user/${id}`, formdata);
+            console.log(res);
+            swal("Good job!", "Update Success!", "success");
+            redirect('/user_profile');
         }
-
     }
 
 
@@ -67,8 +68,8 @@ function Login() {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            <span className="breadcrumb"><a href="#">Home</a> / Login Us</span>
-                            <h3>Login Us</h3>
+                            <span className="breadcrumb"><a href="#">Home</a> /Edit Profile</span>
+                            <h3>Edit Profile</h3>
                         </div>
                     </div>
                 </div>
@@ -79,8 +80,8 @@ function Login() {
                     <div className="row">
                         <div className="col-lg-4 offset-lg-4">
                             <div className="section-heading text-center">
-                                <h6>| Login Us</h6>
-                                <h2>Get In Touch With Our Agents</h2>
+                                <h6>| Edit Profile</h6>
+                               
                             </div>
                         </div>
                     </div>
@@ -93,29 +94,32 @@ function Login() {
                         <div className="col-lg-8 offset-lg-2">
                             <form id="contact-form" action method="post" onSubmit={submitHandel}>
                                 <div className="row">
-
+                                    <div className="col-lg-12">
+                                        <fieldset>
+                                            <label htmlFor="name">Full Name</label>
+                                            <input type="name" onChange={changeHandel} value={formdata.name} name="name" id="name" placeholder="Your Name..."  />
+                                        </fieldset>
+                                    </div>
                                     <div className="col-lg-12">
                                         <fieldset>
                                             <label htmlFor="email">Email Address</label>
-                                            <input type="text" onChange={changeHandel} value={formdata.email} name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required />
+                                            <input type="text" onChange={changeHandel} value={formdata.email} name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." />
                                         </fieldset>
                                     </div>
+                                  
                                     <div className="col-lg-12">
                                         <fieldset>
-                                            <label htmlFor="name">Password</label>
-                                            <input type="password" onChange={changeHandel} value={formdata.password} name="password" id="name" placeholder="Your Password..." autoComplete="on" required />
+                                            <label htmlFor="subject">Mobile</label>
+                                            <input type="number" onChange={changeHandel} value={formdata.mobile} name="mobile" id="mobile" placeholder="Mobile..." />
                                         </fieldset>
                                     </div>
 
                                     <div className="col-lg-12">
                                         <fieldset>
-                                            <button type="submit" id="form-submit" className="orange-button">Login</button>
+                                            <button type="submit" id="form-submit" className="orange-button">Save</button>
                                         </fieldset>
-
                                     </div>
-                                    <div className="col-lg-12">
-                                        <Link to="/signup" className='float-end'>If you Not registered then Signup Here</Link>
-                                    </div>
+                                
                                 </div>
                             </form>
                         </div>
@@ -126,4 +130,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Edit_profile

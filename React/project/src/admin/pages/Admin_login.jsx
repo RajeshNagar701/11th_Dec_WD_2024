@@ -29,7 +29,6 @@ function Admin_login() {
                 toast.error('Password Field is required');
                 ans = false;
             }
-    
             return ans;
         }
 

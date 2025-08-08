@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { data } from 'react-router-dom';
+import { data, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 function Manage_categories() {
 
+    const redirect=useNavigate();
     useEffect(() => {
         getData();
     }, []);
@@ -59,7 +60,7 @@ function Manage_categories() {
                                                     <td><img style={{ width: "100px" }} src={value.cate_image} alt="" /></td>
                                                     <td className='text-center'>
                                                         <button onClick={()=>deleteData(value.id)} className='btn btn-danger me-1'>Delete</button>
-                                                        <button className='btn btn-primary me-1'>Edit</button>
+                                                        <button className='btn btn-primary me-1' onClick={()=>redirect('/edit_cate/'+value.id)}>Edit</button>
                                                     </td>
                                                 </tr>
                                             )
