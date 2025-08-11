@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
+import swal from 'sweetalert'; 
 
 function Manage_customer() {
     useEffect(() => {
@@ -20,8 +21,25 @@ function Manage_customer() {
         console.log(res.data);
         toast.success('Data Deleted Success');
         getData();
-
     }
+
+    const statushange = async (id) => {
+        const res = await axios.get(`http://localhost:3000/user/${id}`);
+        console.log(res.data.status);
+        if(res.data.status=="Unblock")
+        {
+            const res = await axios.patch(`http://localhost:3000/user/${id}`,{status:"Block"});
+            swal("Good job!", "User Blocked Success!", "success");
+            getData();
+        }
+        else
+        {
+            const res = await axios.patch(`http://localhost:3000/user/${id}`,{status:"Unblock"});
+            swal("Good job!", "User Unblock Success!", "success");
+            getData();
+        }
+    }
+    
     return (
         <div className="featured section">
             <div className="container">
@@ -59,6 +77,7 @@ function Manage_customer() {
                                                     <td className='text-center'>
                                                         <button onClick={() => deleteData(value.id)} className='btn btn-danger me-1'>Delete</button>
                                                         <button className='btn btn-primary me-1'>Edit</button>
+                                                        <button className='btn btn-success me-1' onClick={() => statushange(value.id)}>{value.status}</button>
                                                     </td>
                                                 </tr>
                                             )

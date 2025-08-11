@@ -76,7 +76,6 @@ function Header() {
                                 <ul className="nav">
                                     <li><NavLink to="/" >Home</NavLink></li>
                                     <li><NavLink to="/properties">Properties</NavLink></li>
-                                    <li><NavLink to="/property-details">Property Details</NavLink></li>
                                     <li><NavLink to="/contact">Contact Us</NavLink></li>
                                     {(() => {
                                         if (localStorage.getItem('u_id')) {

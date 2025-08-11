@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import swal from 'sweetalert';  
+import swal from 'sweetalert';
 
 
 
@@ -10,7 +10,7 @@ import swal from 'sweetalert';
 function Login() {
 
 
-    const redirect=useNavigate();
+    const redirect = useNavigate();
 
     const [formdata, setFormdata] = useState({
         email: "",
@@ -42,12 +42,17 @@ function Login() {
             const res = await axios.get(`http://localhost:3000/user?email=${formdata.email}`);
             if (res.data.length > 0) {
                 if (formdata.password == res.data[0].password) {
-                    
-                    localStorage.setItem('u_id',res.data[0].id);
-                    localStorage.setItem('u_name',res.data[0].name);
-                    localStorage.setItem('u_email',res.data[0].email);
-                    swal("Good job!", "Login Success!", "success");
-                    redirect('/');
+                    if (res.data[0].status == "Unblock") {
+                        localStorage.setItem('u_id', res.data[0].id);
+                        localStorage.setItem('u_name', res.data[0].name);
+                        localStorage.setItem('u_email', res.data[0].email);
+                        swal("Good job!", "Login Success!", "success");
+                        redirect('/');
+                    }
+                    else {
+                        swal("Error", "Blocked Account!", "error");
+                        redirect('/');
+                    }
                 }
                 else {
                     swal("Error", "Wrong Password!", "error");
