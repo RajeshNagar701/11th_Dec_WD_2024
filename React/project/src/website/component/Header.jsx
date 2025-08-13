@@ -15,18 +15,7 @@ function Header() {
 
     return (
         <div>
-            {/* ***** Preloader Start ***** */}
-            <div id="js-preloader" className="js-preloader">
-                <div className="preloader-inner">
-                    <span className="dot" />
-                    <div className="dots">
-                        <span />
-                        <span />
-                        <span />
-                    </div>
-                </div>
-            </div>
-            {/* ***** Preloader End ***** */}
+           
             <div className="sub-header">
                 <div className="container">
                     <div className="row">
@@ -52,7 +41,16 @@ function Header() {
                         </div>
                         <div className="col-lg-4 col-md-4">
                             <ul className="social-links">
-                                <li><Link to="/user_profile"><i className="fa fa-user" /> </Link></li>
+                                 {(() => {
+                                    if (localStorage.getItem('u_name')) {
+                                        return (
+                                           
+                                             <li><Link to="/user_profile"><i className="fa fa-user" /> </Link></li>
+                                           
+                                        )
+                                    }
+                                })()}
+                               
                                 <li><a href="#"><i className="fab fa-linkedin" /></a></li>
                                 <li><a href="#"><i className="fab fa-instagram" /></a></li>
                             </ul>

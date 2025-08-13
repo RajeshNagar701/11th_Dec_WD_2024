@@ -5,7 +5,8 @@ import swal from 'sweetalert';
 function AHeader() {
 
     const redirect = useNavigate();
-    const logout = () => {
+    const adminlogout = () => {
+        localStorage.removeItem('a_id');
         localStorage.removeItem('a_name');
         localStorage.removeItem('a_email');
         swal("Good job!", "Admin Logout Success!", "success");
@@ -14,18 +15,7 @@ function AHeader() {
 
     return (
         <div>
-            {/* ***** Preloader Start ***** */}
-            <div id="js-preloader" className="js-preloader">
-                <div className="preloader-inner">
-                    <span className="dot" />
-                    <div className="dots">
-                        <span />
-                        <span />
-                        <span />
-                    </div>
-                </div>
-            </div>
-            {/* ***** Preloader End ***** */}
+           
             <div className="sub-header">
                 <div className="container">
                     <div className="row">
@@ -92,18 +82,8 @@ function AHeader() {
                                             <Link class="dropdown-item" to="/manage_feedback">Feedback</Link>
                                         </div>
                                     </li>
-                                    {(() => {
-                                        if (localStorage.getItem('a_email')) {
-                                            return (
-                                                <li><a href={void (0)} onClick={logout} className="w-100 h-50 p-1"> Logout</a></li>
-                                            )
-                                        }
-                                        else {
-                                            return (
-                                                <li><NavLink to="/Admin_login" className="w-100 h-50 p-1"> <span className='fa fa-user'></span> Logout</NavLink></li>
-                                            )
-                                        }
-                                    })()}                                </ul>
+                                     <li><a href={void(0)} onClick={adminlogout} className="w-100 h-50 p-1"> Logout</a></li>    
+                                </ul>
                                 <a className="menu-trigger">
                                     <span>Menu</span>
                                 </a>
