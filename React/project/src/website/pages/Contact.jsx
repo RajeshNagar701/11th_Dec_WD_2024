@@ -40,7 +40,7 @@ function Contact() {
     const submitHandel = async (e) => {
         e.preventDefault();
         if (validation()) {
-            const res = await axios.post(`http://localhost:3000/contact`, formdata);
+            const res = await axios.post(`https://sweetmart-563b7-default-rtdb.firebaseio.com/contact.json`, formdata);
             console.log(res);
             swal("Good job!", "Contact Submitted Success!", "success");
             setFormdata({ ...formdata, name: "", email: "", mobile: "", message: "" });

@@ -17,6 +17,8 @@ import MUI from "./MUI/MUI.jsx"
 import Styled_component from "./Styled_component/Styled_component.jsx"
 import Form_handeling from "./Form_handeling/Form_handeling.jsx"
 import Table_handeling from "./Form_handeling/Table_handeling.jsx"
+import Firebase_Form_handeling from "./Firebase_crud/Firebase_Form_handeling.jsx"
+import Firebase_Routing from "./Firebase_crud/Firebase_Routing.jsx"
 
 
 
@@ -63,8 +65,10 @@ function App() {
 
         // project work
         //<Form_handeling/>
+        //<Table_handeling/>
+        
+        <Firebase_Routing/>
 
-        <Table_handeling/>
       }
     </div>
   )
