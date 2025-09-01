@@ -21,6 +21,7 @@ import Firebase_Form_handeling from "./Firebase_crud/Firebase_Form_handeling.jsx
 import Firebase_Routing from "./Firebase_crud/Firebase_Routing.jsx"
 import Main_drilling from "./Props_drilling/Main_drilling.jsx"
 import Use_context from "./UseContext/Use_context.jsx"
+import UseReducer from "./UseReducer/UseReducer.jsx"
 
 
 
@@ -72,7 +73,9 @@ function App() {
         //<Firebase_Routing/>
 
         //<Main_drilling/>
-        <Use_context/>
+        //<Use_context/>
+        
+        <UseReducer/>
       }
     </div>
   )
