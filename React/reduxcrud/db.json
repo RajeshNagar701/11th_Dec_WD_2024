@@ -25,28 +25,14 @@
       "status": "Unblock"
     },
     {
-      "id": "f1c4",
-      "requestId": "G7DCM2GFWFIhqaiDcDcIz",
-      "signal": {}
-    },
-    {
-      "id": "ee0f",
-      "requestId": "OPHxRzQY-0a52U_NY55jA",
-      "signal": {}
-    },
-    {
       "id": "1757941178972",
       "name": "nagar",
       "email": "nagar@gmail.com",
       "password": "1234",
       "mobile": "2343434324",
       "status": "Unblock"
-    },
-    {
-      "id": "aa98",
-      "requestId": "EguGNcLCxXlypoXfW3GNG",
-      "signal": {}
     }
+   
   ],
   "categories": [
     {
