@@ -7,7 +7,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-
 export const select_user=createAsyncThunk('select_user',async()=>{
     const res=await axios.get(`http://localhost:3000/user`);
     console.log(res.data);
@@ -26,8 +25,8 @@ export const delete_user=createAsyncThunk('delete_user',async(id)=>{
     return res.data;
 });
 
-export const update_data=createAsyncThunk('update_data',async(id,formobj)=>{
-    const res=await axios.patch(`http://localhost:3000/user/${id}`,formobj);
+export const update_user=createAsyncThunk('update_user',async(formobj)=>{
+    const res=await axios.patch(`http://localhost:3000/user/${formobj.id}`,formobj);
     console.log(res.data);
     return res.data;
 });

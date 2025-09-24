@@ -10,10 +10,10 @@
   "user": [
     {
       "id": "1753879597600",
-      "name": "Nagar",
-      "email": "nagar@gmail.com",
-      "password": "1234",
-      "mobile": "1234567891",
+      "name": "Nagar raj",
+      "email": "nagarraj@gmail.com",
+      "password": "12345",
+      "mobile": "12345679999",
       "status": "Unblock"
     },
     {
@@ -23,16 +23,7 @@
       "password": "abc",
       "mobile": "123456987",
       "status": "Unblock"
-    },
-    {
-      "id": "1757941178972",
-      "name": "nagar",
-      "email": "nagar@gmail.com",
-      "password": "1234",
-      "mobile": "2343434324",
-      "status": "Unblock"
     }
-   
   ],
   "categories": [
     {
@@ -103,20 +94,6 @@
     }
   ],
   "contact": [
-    {
-      "id": "1",
-      "name": "demo",
-      "email": "demo@gmail.com",
-      "mobile": 9722041171,
-      "message": "Demo inquiry"
-    },
-    {
-      "id": "2",
-      "name": "test",
-      "email": "test@gmail.com",
-      "mobile": 9722041171,
-      "message": "test inquiry"
-    },
     {
       "id": "1753706013278",
       "name": "rohan",

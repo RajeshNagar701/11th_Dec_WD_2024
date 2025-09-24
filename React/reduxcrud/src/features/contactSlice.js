@@ -1,18 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
- const initialState={
-       contacts_data:[]
-    };
 
-export const contactSlice =createSlice({
-    name:'contact',
-    initialState,
-    reducers:{
 
-    }
+export const select_contact=createAsyncThunk('select_contact',async()=>{
+    const res=await axios.get(`http://localhost:3000/contact`);
+    console.log(res.data);
+    return res.data;
 });
-
 
 export const insert_contact=createAsyncThunk('insert_contact',async(api,formobj)=>{
     const res=await axios.post(`http://localhost:3000/contact`,formobj);
@@ -31,6 +26,26 @@ export const update_contact=createAsyncThunk('update_contact',async(id,formobj)=
     console.log(res.data);
     return res.data;
 });
+
+ const initialState={
+       contacts_data:[]
+    };
+
+export const contactSlice =createSlice({
+    name:'contact',
+    initialState,
+    reducers:{
+    },
+    extraReducers:{
+        [select_contact.fulfilled]:(state,action)=>{
+            state.contacts_data=action.payload;
+        }
+    }
+
+});
+
+
+
 
 
 export const {  } = contactSlice.actions
