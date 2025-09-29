@@ -22,6 +22,11 @@ import Firebase_Routing from "./Firebase_crud/Firebase_Routing.jsx"
 import Main_drilling from "./Props_drilling/Main_drilling.jsx"
 import Use_context from "./UseContext/Use_context.jsx"
 import UseReducer from "./UseReducer/UseReducer.jsx"
+import React_Tailwind from "./React_Tailwind/React_Tailwind.jsx"
+import Tailwind_instalation from "./React_Tailwind/Tailwind_instalation.jsx"
+import Main_lazy from "./Lazy_suspense/Main_lazy.jsx"
+import UseRef from "./useRef/UseRef.jsx"
+import UseRef1 from "./useRef/UseRef1.jsx"
 
 
 
@@ -75,7 +80,17 @@ function App() {
         //<Main_drilling/>
         //<Use_context/>
         
-        <UseReducer/>
+        //<UseReducer/>
+
+        // tailwind
+       // <React_Tailwind/>
+        //<Tailwind_instalation/>
+
+
+        //<Main_lazy/>
+
+        //<UseRef/>
+        <UseRef1/>
       }
     </div>
   )
