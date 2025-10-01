@@ -1,4 +1,5 @@
 /*
+
 The React useMemo Hook returns a memoized value.
 
 The useMemo Hook only runs when one of its dependencies update.
@@ -13,41 +14,43 @@ This can improve performance.
 
 import React, { useMemo } from 'react'
 import { useState } from "react";
+import Memo_img from './Memo_img';
 
 function React_memo() {
 
-  const [count, setCount] = useState(0);   
-  const [name, setName] = useState("Rah nagar"); 
+  const [count, setCount] = useState(0);
+  const [name, setName] = useState("Raj nagar");
+  const [isImage, setisImage] = useState(true);
+
   const increment = () => {
-    setCount(count+1);
+    setCount(count + 1);
   };
 
   const expensiveCalculation = (num) => {
-    console.log("Calculating...");
-    for (let i = 0; i < 1000; i++) {
-        num += 1;
-    }
-        alert('hello')
-        return num;
-        
-    };
-
-    //const calculation= expensiveCalculation(count); withaout useMEMO ALL TIME REDURING 
-    const calculation= useMemo(()=>expensiveCalculation(count),[count])  // WITH useMemo only function call when depedanct count change  
+    alert('hello')
+    return num;
+  };
+  //expensiveCalculation(count); //withaout useMEMO ALL TIME REDURING 
+  useMemo(() => expensiveCalculation(count), [count])  // WITH useMemo only function call when depedanct count change  
 
 
   return (
-    <div>
-        Count: {count}
-        <button onClick={increment}>+</button>
+    <div className='container mt-5'>
+      Count: {count}
+      <button onClick={increment}>+</button>
 
-        <h2>Expensive Calculation</h2>
-        {calculation}
+      <hr />
+      <button className='btn btn-primary' onClick={() => setName("Akash Nagar")}>Changes</button>
+      <h1>{name}</h1>
 
-        <hr />
-        <button className='btn btn-primary' onClick={()=>setName("Akash Nagar")}>Changes</button>
-        <h1>{name}</h1>
+      <hr />
 
+      <button onClick={() => setisImage(!isImage)}>Hide/show</button>
+            <hr />
+
+            {
+                isImage ? <Memo_img /> : null
+            }
 
     </div>
   )
