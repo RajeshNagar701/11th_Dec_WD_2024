@@ -21,8 +21,10 @@ import Link from "next/link";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
 
         <div class="p-5 bg-primary text-white text-center">
