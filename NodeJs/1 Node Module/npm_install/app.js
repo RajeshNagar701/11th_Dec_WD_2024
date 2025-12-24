@@ -25,3 +25,5 @@ publish them to repositories like Github for access to distributed machines
 
 
 */
+
+console.log('hello app');

@@ -17,16 +17,15 @@ If some securities added in pc then not work globally that time
 
 Go : search : cmd with administrative then we can done globally 
 
-
 */
-
-
 var http = require('http');
 
 http.createServer((req,resp)=>{
 		
 	resp.writeHead(200, { 'Content-Type': 'text/html' });
-	resp.write('<h1>Hi i am http module server</h1>');	
+	resp.write('<h1>Hi i am http module server !</h1>');	
 	resp.end();
 	
 }).listen(5000);
+
+console.log('server created !');
