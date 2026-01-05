@@ -6,8 +6,19 @@ const dirpath=path.join(__dirname,'public/demo')
 
 //create file in crud folder
 
-for(i=0;i<5;i++)
+
+for(i=1;i<=100;i++)
 {
-	fs.writeFileSync(`${dirpath}/hello${i}.txt`,"Some simple text in file")
+	fs.writeFileSync(`${dirpath}/hello${i}.txt`,`Your Roll No is : ${i}`)
+	
+	/*
+	fs.unlinkSync(`${dirpath}/hello${i}.txt`,(err)=>{
+	if(!err) console.log("file is deleted")
+	});
+	*/
+
 }
+
+
+
 

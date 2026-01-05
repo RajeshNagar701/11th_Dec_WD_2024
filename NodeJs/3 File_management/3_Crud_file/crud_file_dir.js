@@ -19,18 +19,17 @@ const fs = require('fs');
 
 //path Core Module 
 const path = require('path');  // folder module
-const dirPath= path.join(__dirname,'myDir');  // current crud folder path 
-const filePath = `${dirPath}/apple.txt`;
+const folder_Path= path.join(__dirname,'myDir');  // current crud folder path 
+const filePath = `${folder_Path}/apple.txt`;
 
 
 //create file &Write data in myDir folder
 
-/*
 
+/*
 fs.writeFileSync(filePath,'this is a simple file',(err)=>{
 if(!err) { console.log("file is created"); }
 })
-
 */
 
 
@@ -44,30 +43,27 @@ if(!err) { console.log("file is created"); }
 */
 
 // update
-
 /*
 fs.appendFile(filePath,'for fruits',(err)=>{
 if(!err) {
 	console.log("file is updated");
 	}
 })
-
 */
 
 
 // rename
-
 /*
-
-fs.rename(filePath, `${dirPath}/fruit.txt`,(err)=>{
+fs.rename(filePath, `${folder_Path}/fruit.txt`,(err)=>{
 if(!err) console.log("file name is updated")
 })
+*/
 
-*/  
 
 // Delete 	fs.unlink('test.txt', function ())
 
 
-fs.unlinkSync(`${dirPath}/fruit.txt`,(err)=>{
+fs.unlinkSync(`${folder_Path}/fruit.txt`,(err)=>{
 if(!err) console.log("file is deleted")
 });
+

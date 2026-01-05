@@ -75,8 +75,10 @@ if(!err) console.log("file name is updated")
 /*
 fs.unlinkSync('rajnew.txt',(err)=>{
 if(!err) console.log("file is deleted")
-});
+})
 */
+
+
 
 
 
