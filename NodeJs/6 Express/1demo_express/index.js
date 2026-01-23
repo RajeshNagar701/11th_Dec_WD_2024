@@ -65,7 +65,7 @@ var app=express();
 app.get('/',(req,res)=>{
 	
 	//res.send('<h1>Hello</h1>');
-	res.send({name:'Raj', email:'raj@gmail.com'})
+	//res.send({name:'Raj', email:'raj@gmail.com'})
 });
 
 app.listen(5000);

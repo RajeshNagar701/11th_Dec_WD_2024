@@ -5,7 +5,8 @@ var app=express();
 
 app.get("/", (req, resp) => {
 	
-resp.send("<h1>Hi i am index</h1>");})
+resp.send("<h1>Hi i am index</h1>");
+})
 
 app.get("/api", (req, resp) => {
 
