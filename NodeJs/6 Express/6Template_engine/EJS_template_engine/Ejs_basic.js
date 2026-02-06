@@ -37,7 +37,7 @@ _%> ‘Whitespace Slurping’ ending tag, removes all whitespace after it
 </ul>
 
 
-		npm install ejs
+		npm install ejs 
 
 
 		Load ejs template in node JS
@@ -82,15 +82,15 @@ Layouts
 
 
 var express=require('express');
-
 var app=express();
 
 const path = require('path');
 var publicpath=path.join(__dirname,'public') // public sudhi no path
 
-// use view engine  // name of template engine
+// use view engine  // name of template engine  npm install ejs 
 
 app.set('view engine','ejs') // load ejs on app
+
 app.get('/basic_page',(_,resp)=>{
 	var user_obj=[
 				{
