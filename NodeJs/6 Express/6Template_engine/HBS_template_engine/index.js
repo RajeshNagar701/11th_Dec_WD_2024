@@ -40,12 +40,14 @@ const hbs = require('hbs');
 
 app.set('view engine', 'hbs');  // app.set('view engine','ejs')
 
+
+/*
 // 1 static code 
 
 app.get('/send',(_,resp)=>{
     resp.send(`<h1>Hello i am static code </h1>`)
 });
-
+*/
 
 
 
@@ -54,7 +56,7 @@ app.get('/send',(_,resp)=>{
 
 
 // 2  static page call & want path stattic page
-
+/*
 const path = require('path');
 const publicPath=path.join(__dirname,'public'); 
 
@@ -62,7 +64,7 @@ const publicPath=path.join(__dirname,'public');
 app.get('/sendFile',(_,resp)=>{
     resp.sendFile(`${publicPath}/demo.html`);
 });
-
+*/
 
 
 
@@ -74,7 +76,7 @@ app.get('/sendFile',(_,resp)=>{
 
 
 app.use(express.static('public'));
-hbs.registerPartials(__dirname + '/views/partials/');
+hbs.registerPartials(__dirname + '/views/layout');
 
 app.get('/',(_,resp)=>{
     resp.render('index');
