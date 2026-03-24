@@ -9,7 +9,7 @@ function Dashbord() {
 
     useEffect(() => {
         select_user();
-    });
+    },[]);
 
     const [users_data,setusers_data]=useState([]);
     const select_user=async()=>{
@@ -18,8 +18,10 @@ function Dashbord() {
     }
     
 
-    const deleteHandel = (id) => {
-       
+    const deleteHandel = async(id) => {
+        const res=await axios.delete(`http://localhost:5000/deletedata3/${id}`,);
+        console.log(res);
+        select_user();
     }
 
 
@@ -30,18 +32,20 @@ function Dashbord() {
         mobile: "",
     });
 
-    const editHandel = (id) => {
-     
+    const editHandel =async (id) => {
+        const res=await axios.get(`http://localhost:5000/getsingle/${id}`);
+        setFormvalue(res.data);
     }
 
     const changeHandel = (e) => {
         setFormvalue({ ...formvalue, [e.target.name]: e.target.value });
-        console.log(formvalue);
+        console.log(formvalue._id);
     }
-    const submitHandel = (e) => {
+    const submitHandel =async (e) => {
         e.preventDefault();
-        console.log(formvalue.id);
-      
+        const res=await axios.put(`http://localhost:5000/putdata/${formvalue._id}`,formvalue);
+        console.log(res.data);
+        select_user();
     }
 
     return (
@@ -73,7 +77,8 @@ function Dashbord() {
                                                 <td>{item.email}</td>
                                                 <td>{item.mobile}</td>
                                                 <td>
-                                                    <button className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#myModal" onClick={() => editHandel(item.id)}>Edit</button>
+                                                     <button className='btn btn-danger' onClick={() => deleteHandel(item._id)}>Delete</button>
+                                                    <button className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#myModal" onClick={() => editHandel(item._id)}>Edit</button>
                                                     <div className="modal" id="myModal">
                                                         <div className="modal-dialog">
                                                             <div className="modal-content">
@@ -115,7 +120,7 @@ function Dashbord() {
                                                         </div>
                                                     </div>
 
-                                                    <button className='btn btn-danger' onClick={() => deleteHandel(item.id)}>Delete</button>
+                                                   
                                                 </td>
                                             </tr>
                                         )

@@ -7,7 +7,7 @@ function Manage_contact() {
 
     const [contacts_data,setcontacts_data]=useState([]);
     useEffect(() => {
-     
+        
     });
 
     const deleteHandel = (id) => {

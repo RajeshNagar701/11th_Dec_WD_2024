@@ -9,6 +9,8 @@ const app=express();
 app.use(cors());
 app.use(express.json());
 
+const { ObjectId } = require("mongodb");
+
 // get all data  http://localhost:5000/getdata
 app.get('/getdata', async (req, resp) => {
     let conn = await dbConnect();
@@ -19,28 +21,15 @@ app.get('/getdata', async (req, resp) => {
 
 //http://localhost:5000/getsingle
 
-// get single or particular column data 
-app.get('/getsingle1', async (req, resp) => {
-    let conn = await dbConnect();
-    data = await conn.find({id:1}).toArray();
-    resp.send(data);
-});
-
-//http://localhost:5000/getsingle2?name=raj nagar
+//http://localhost:5000/getsingle2/ your id
 // get single or particular column data
-app.get('/getsingle2', async (req, resp) => {
+app.get('/getsingle/:_id', async (req, resp) => {
     let conn = await dbConnect();
-    data = await conn.find(req.query).toArray();
-	console.log(req.query);
+    data = await conn.findOne({_id:new ObjectId(req.params._id)});
+    console.log(data);
     resp.send(data);
 });
 
-app.get('/getsingle3', async (req, resp) => {
-    let conn = await dbConnect();
-    data = await conn.find(req.body).toArray();
-	console.log(req.body);
-    resp.send(data);
-});
 
 
 //=========================================================================
@@ -64,11 +53,15 @@ app.post("/postdata2", async (req, resp) => {
 
 // update by postman body   http://localhost:5000/putdata  add data in body
 
+
+
 //==================================================================================
 
-app.put("/putdata", async (req, resp) => {
+app.put("/putdata/:_id", async (req, resp) => {
     const data = await dbConnect();
-    let result = data.updateOne({id:req.body.id},{ $set: req.body })
+    let body=req.body;
+    delete body._id;
+    let result = data.updateOne({_id:new ObjectId(req.params._id)},{ $set: req.body })
     resp.send({ status: "updated" })
 })
 
@@ -88,30 +81,6 @@ app.patch("/patchdatapara", async (req, resp) => {
 
 //==========================================================
 
-//delete data static
-// http://localhost:5000/deletedata1
-app.delete("/deletedata1", async (req, resp) => {
-    let data = await dbConnect();
-	let result = await data.deleteOne({id:5})
-    resp.send({ status: "data deleted" })
-})
 
-
-//delete data by body
-// http://localhost:5000/deletedata2
-app.delete("/deletedata2", async (req, resp) => {
-    let data = await dbConnect();
-	let result = await data.deleteMany(req.body)
-    resp.send({ status: "data deleted" })
-})
-
-//delete data by parameter
-// http://localhost:5000/deletedata3?id=5
-app.delete("/deletedata3", async (req, resp) => {
-    let data = await dbConnect();
-	let result = await data.delete({name:req.query})
-	console.log(req.query);
-    resp.send({ status: "data deleted" })
-})
 
 app.listen(5000);
