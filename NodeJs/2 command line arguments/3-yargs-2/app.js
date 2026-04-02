@@ -12,12 +12,12 @@ yargs.command({
     command: 'add',
     describe: 'Add a new note',
     builder: {  // arguments 
-        a: {
+        title: {
             describe: 'Note title',
             demandOption: true,
             type: 'string'
         },
-        b: {
+        body: {
             describe: 'Note body',
             demandOption: true,
             type: 'string'

@@ -59,4 +59,5 @@ yargs.command({
     }
 })
 
-console.log(yargs.argv)
+
+console.log(yargs.argv);
