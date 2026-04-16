@@ -81,6 +81,16 @@ app.delete("/delete/:_id", async (req, resp) => {
     resp.send(data);
 });
 
+//put http://localhost:5000/update/637f3ba97f546bbfeae336c3
+
+app.put("/update/:_id",async (req, resp) => {
+    console.log(req.params)
+    let data = await emp_model.updateOne(
+        req.params,
+        {$set: req.body}
+    );
+    resp.send(data);
+})
 
 
 
